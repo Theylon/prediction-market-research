@@ -401,6 +401,27 @@
         .score-medium { color: var(--accent-yellow); }
         .score-low { color: var(--accent-orange); }
         
+        .market-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.15s;
+        }
+        
+        .market-link:hover {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+        
         .activity-high { color: var(--accent-green); }
         .activity-medium { color: var(--accent-yellow); }
         .activity-low { color: var(--text-secondary); }
@@ -449,6 +470,23 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
+        }
+        
+        .detail-market-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            transition: all 0.15s;
+        }
+        
+        .detail-market-link:hover {
+            background: #4a9eff;
         }
         
         .detail-metric {
@@ -826,6 +864,7 @@
                         <th style="width: 60px;" class="hide-mobile" data-sort="price" onclick="sortTable('mr', 'price')">Price</th>
                         <th style="width: 70px;" data-sort="expiry" onclick="sortTable('mr', 'expiry')">Expiry</th>
                         <th style="width: 60px;" data-sort="score" onclick="sortTable('mr', 'score')">Score</th>
+                        <th style="width: 50px;">Link</th>
                     </tr>
                 </thead>
                 <tbody id="mean-reversion-tbody"></tbody>
@@ -850,6 +889,7 @@
                         <th style="width: 60px;" class="hide-mobile" data-sort="price" onclick="sortTable('swing', 'price')">Price</th>
                         <th style="width: 70px;" data-sort="expiry" onclick="sortTable('swing', 'expiry')">Expiry</th>
                         <th style="width: 60px;" data-sort="score" onclick="sortTable('swing', 'score')">Score</th>
+                        <th style="width: 50px;">Link</th>
                     </tr>
                 </thead>
                 <tbody id="swing-tbody"></tbody>
@@ -2603,6 +2643,14 @@ let allMeanReversionMarkets = [];
 let allSwingMarkets = [];
 let currentSort = { mr: { field: 'rank', asc: true }, swing: { field: 'rank', asc: true } };
 
+function getMarketUrl(m) {
+    if (m.platform.toLowerCase() === 'polymarket') {
+        return 'https://polymarket.com/event/' + m.identifier;
+    } else {
+        return 'https://kalshi.com/markets/' + m.identifier;
+    }
+}
+
 function renderDashboard(data) {
     document.getElementById('timestamp').textContent = 
         `Generated: ${new Date(data.generated_at).toLocaleString()}`;
@@ -2648,16 +2696,17 @@ function renderMarketTable(tbodyId, markets, type) {
                 <td class="hide-mobile">${m.last_price}¢</td>
                 <td>${m.time_to_expiry}</td>
                 <td class="score-cell ${scoreClass}">${m.final_score.toFixed(1)}</td>
+                <td><a href="${getMarketUrl(m)}" target="_blank" class="market-link" onclick="event.stopPropagation();">↗</a></td>
             </tr>
             <tr class="details-row" id="${rowId}">
-                <td colspan="10">
+                <td colspan="11">
                     <div class="details-content">${renderDetails(m, type)}</div>
                 </td>
             </tr>
         `;
     });
     
-    tbody.innerHTML = html || '<tr><td colspan="10" class="no-results">No markets match your filters</td></tr>';
+    tbody.innerHTML = html || '<tr><td colspan="11" class="no-results">No markets match your filters</td></tr>';
 }
 
 function renderDetails(m, type) {
@@ -2676,6 +2725,7 @@ function renderDetails(m, type) {
         <div class="details-grid">
             <div class="details-section">
                 <h4>📊 Key Metrics</h4>
+                <a href="${getMarketUrl(m)}" target="_blank" class="detail-market-link">Open on ${m.platform} ↗</a>
                 <div class="details-metrics">
                     <div class="detail-metric"><div class="detail-metric-label">Liquidity</div><div class="detail-metric-value">${m.liquidity}</div></div>
                     <div class="detail-metric"><div class="detail-metric-label">Recent Vol</div><div class="detail-metric-value">${m.recent_volume}</div></div>
