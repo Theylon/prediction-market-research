@@ -36,7 +36,7 @@
             text-align: center;
             padding: 30px 0;
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         h1 {
@@ -55,7 +55,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .stat-card {
@@ -69,6 +69,210 @@
         .stat-value { font-size: 1.6rem; font-weight: bold; color: var(--accent-blue); }
         .stat-label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 3px; }
         
+        /* Filter Panel Styles */
+        .filter-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        
+        .filter-header h3 {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-toggle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .filter-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .filter-content.collapsed {
+            display: none;
+        }
+        
+        .filter-group {
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .filter-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .filter-group select,
+        .filter-group input[type="text"],
+        .filter-group input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        
+        .filter-group input::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .range-inputs {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .range-inputs input {
+            flex: 1;
+        }
+        
+        .range-inputs span {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--bg-primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.15s;
+        }
+        
+        .checkbox-item:hover {
+            border-color: var(--accent-blue);
+        }
+        
+        .checkbox-item.active {
+            background: rgba(88, 166, 255, 0.15);
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+        
+        .checkbox-item input {
+            display: none;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s;
+        }
+        
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #4a9eff;
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+        }
+        
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .active-filter-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(88, 166, 255, 0.15);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .active-filter-tag .remove {
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        
+        .active-filter-tag .remove:hover {
+            opacity: 1;
+        }
+        
+        .results-count {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .results-count strong {
+            color: var(--accent-green);
+        }
+        
         section { margin-bottom: 40px; }
         
         h2 {
@@ -81,7 +285,7 @@
             gap: 10px;
         }
         
-        .section-description { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem; }
+        .section-description { color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9rem; }
         
         /* Condensed Table Styles */
         .market-table {
@@ -105,6 +309,21 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            cursor: pointer;
+        }
+        
+        .market-table th:hover {
+            color: var(--accent-blue);
+        }
+        
+        .market-table th.sorted-asc::after {
+            content: " ▲";
+            font-size: 0.7rem;
+        }
+        
+        .market-table th.sorted-desc::after {
+            content: " ▼";
+            font-size: 0.7rem;
         }
         
         .market-row {
@@ -125,6 +344,10 @@
         
         .market-row.expanded {
             background: var(--bg-tertiary);
+        }
+        
+        .market-row.hidden {
+            display: none;
         }
         
         .expand-icon {
@@ -189,6 +412,10 @@
         
         .details-row.show {
             display: table-row;
+        }
+        
+        .details-row.hidden {
+            display: none !important;
         }
         
         .details-row td {
@@ -413,6 +640,13 @@
             font-size: 0.85rem;
         }
         
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
         /* Responsive */
         @media (max-width: 1200px) {
             .market-table { font-size: 0.85rem; }
@@ -425,6 +659,7 @@
             .title-cell { max-width: 150px; }
             .hide-mobile { display: none; }
             .details-metrics { grid-template-columns: repeat(2, 1fr); }
+            .filter-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -438,48 +673,188 @@
         
         <div class="stats-grid" id="stats-grid"></div>
         
+        <!-- Filter Panel -->
+        <div class="filter-panel">
+            <div class="filter-header" onclick="toggleFilterPanel()">
+                <h3>🔍 Filters</h3>
+                <span class="filter-toggle"><span id="filter-toggle-text">Hide</span> ▼</span>
+            </div>
+            <div class="filter-content" id="filter-content">
+                <!-- Row 1 -->
+                <div class="filter-group">
+                    <label>🔎 Search</label>
+                    <input type="text" id="filter-search" placeholder="Search market titles..." oninput="applyFilters()">
+                </div>
+                
+                <div class="filter-group">
+                    <label>🏢 Platform</label>
+                    <select id="filter-platform" onchange="applyFilters()">
+                        <option value="all">All Platforms</option>
+                        <option value="polymarket">Polymarket</option>
+                        <option value="kalshi">Kalshi</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>📊 Market Type</label>
+                    <select id="filter-type" onchange="applyFilters()">
+                        <option value="all">All Types</option>
+                        <option value="mean-reversion">Mean Reversion (Score ≥7)</option>
+                        <option value="swing">Swing Volatility (Score ≥7)</option>
+                        <option value="both">Strong in Both (≥7)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>⭐ Min Score</label>
+                    <input type="number" id="filter-min-score" placeholder="e.g., 7" min="1" max="10" step="0.5" oninput="applyFilters()">
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="filter-group">
+                    <label>💰 Liquidity Range</label>
+                    <div class="range-inputs">
+                        <input type="number" id="filter-liq-min" placeholder="Min $" oninput="applyFilters()">
+                        <span>to</span>
+                        <input type="number" id="filter-liq-max" placeholder="Max $" oninput="applyFilters()">
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label>📈 Activity Ratio</label>
+                    <select id="filter-activity" onchange="applyFilters()">
+                        <option value="all">All Activity Levels</option>
+                        <option value="very-high">Very High (>50%)</option>
+                        <option value="high">High (20-50%)</option>
+                        <option value="medium">Medium (10-20%)</option>
+                        <option value="low">Low (<10%)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>⏱️ Time to Expiry</label>
+                    <select id="filter-expiry" onchange="applyFilters()">
+                        <option value="all">Any Expiry</option>
+                        <option value="24h">Within 24 hours</option>
+                        <option value="3d">Within 3 days</option>
+                        <option value="7d">Within 7 days</option>
+                        <option value="14d">Within 14 days</option>
+                        <option value="30d">Within 30 days</option>
+                        <option value="30d+">More than 30 days</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>💵 Price Range</label>
+                    <select id="filter-price" onchange="applyFilters()">
+                        <option value="all">All Prices</option>
+                        <option value="mid">Mid-range (30-70¢)</option>
+                        <option value="low">Low (10-30¢)</option>
+                        <option value="high">High (70-90¢)</option>
+                        <option value="extreme-low">Extreme Low (<10¢)</option>
+                        <option value="extreme-high">Extreme High (>90¢)</option>
+                    </select>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="filter-group">
+                    <label>🔥 Flow Intensity Score</label>
+                    <select id="filter-flow" onchange="applyFilters()">
+                        <option value="all">Any Flow</option>
+                        <option value="9+">Excellent (9+)</option>
+                        <option value="7+">Good (7+)</option>
+                        <option value="5+">Moderate (5+)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>📉 Microstructure Score</label>
+                    <select id="filter-micro" onchange="applyFilters()">
+                        <option value="all">Any Microstructure</option>
+                        <option value="9+">Excellent (9+)</option>
+                        <option value="7+">Good (7+)</option>
+                        <option value="5+">Moderate (5+)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>🎯 Inefficiency Score</label>
+                    <select id="filter-inefficiency" onchange="applyFilters()">
+                        <option value="all">Any Inefficiency</option>
+                        <option value="9+">High Inefficiency (9+)</option>
+                        <option value="7+">Good (7+)</option>
+                        <option value="5+">Moderate (5+)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>🏷️ Category / Tags</label>
+                    <select id="filter-category" onchange="applyFilters()">
+                        <option value="all">All Categories</option>
+                        <option value="sports">Sports</option>
+                        <option value="crypto">Crypto</option>
+                        <option value="politics">Politics</option>
+                        <option value="economy">Economy</option>
+                        <option value="commodities">Commodities</option>
+                        <option value="entertainment">Entertainment</option>
+                    </select>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+                    <button class="btn btn-secondary" onclick="resetFilters()">Reset All</button>
+                </div>
+            </div>
+            
+            <div class="active-filters" id="active-filters"></div>
+        </div>
+        
         <section>
             <h2><span class="icon">📊</span> Best Mean-Reversion Candidates</h2>
             <p class="section-description">Markets suitable for intraday mean reversion. Click any row to expand details.</p>
+            <div class="results-count" id="mr-results-count"></div>
             <table class="market-table" id="mean-reversion-table">
                 <thead>
                     <tr>
                         <th style="width: 30px;"></th>
-                        <th style="width: 40px;">#</th>
-                        <th>Market</th>
-                        <th style="width: 90px;">Platform</th>
-                        <th style="width: 90px;">Liquidity</th>
-                        <th style="width: 90px;">Volume 7d</th>
-                        <th style="width: 80px;">Activity</th>
-                        <th style="width: 60px;" class="hide-mobile">Price</th>
-                        <th style="width: 70px;">Expiry</th>
-                        <th style="width: 60px;">Score</th>
+                        <th style="width: 40px;" data-sort="rank" onclick="sortTable('mr', 'rank')">#</th>
+                        <th data-sort="title" onclick="sortTable('mr', 'title')">Market</th>
+                        <th style="width: 90px;" data-sort="platform" onclick="sortTable('mr', 'platform')">Platform</th>
+                        <th style="width: 90px;" data-sort="liquidity" onclick="sortTable('mr', 'liquidity')">Liquidity</th>
+                        <th style="width: 90px;" data-sort="volume" onclick="sortTable('mr', 'volume')">Volume 7d</th>
+                        <th style="width: 80px;" data-sort="activity" onclick="sortTable('mr', 'activity')">Activity</th>
+                        <th style="width: 60px;" class="hide-mobile" data-sort="price" onclick="sortTable('mr', 'price')">Price</th>
+                        <th style="width: 70px;" data-sort="expiry" onclick="sortTable('mr', 'expiry')">Expiry</th>
+                        <th style="width: 60px;" data-sort="score" onclick="sortTable('mr', 'score')">Score</th>
                     </tr>
                 </thead>
                 <tbody id="mean-reversion-tbody"></tbody>
             </table>
+            <div class="no-results" id="mr-no-results" style="display: none;">No markets match your filters</div>
         </section>
         
         <section>
             <h2><span class="icon">🌊</span> Best 1-3 Day Swing-Volatility Candidates</h2>
             <p class="section-description">Markets with high repricing potential. Click any row to expand details.</p>
+            <div class="results-count" id="swing-results-count"></div>
             <table class="market-table" id="swing-table">
                 <thead>
                     <tr>
                         <th style="width: 30px;"></th>
-                        <th style="width: 40px;">#</th>
-                        <th>Market</th>
-                        <th style="width: 90px;">Platform</th>
-                        <th style="width: 90px;">Liquidity</th>
-                        <th style="width: 90px;">Volume 7d</th>
-                        <th style="width: 80px;">Activity</th>
-                        <th style="width: 60px;" class="hide-mobile">Price</th>
-                        <th style="width: 70px;">Expiry</th>
-                        <th style="width: 60px;">Score</th>
+                        <th style="width: 40px;" data-sort="rank" onclick="sortTable('swing', 'rank')">#</th>
+                        <th data-sort="title" onclick="sortTable('swing', 'title')">Market</th>
+                        <th style="width: 90px;" data-sort="platform" onclick="sortTable('swing', 'platform')">Platform</th>
+                        <th style="width: 90px;" data-sort="liquidity" onclick="sortTable('swing', 'liquidity')">Liquidity</th>
+                        <th style="width: 90px;" data-sort="volume" onclick="sortTable('swing', 'volume')">Volume 7d</th>
+                        <th style="width: 80px;" data-sort="activity" onclick="sortTable('swing', 'activity')">Activity</th>
+                        <th style="width: 60px;" class="hide-mobile" data-sort="price" onclick="sortTable('swing', 'price')">Price</th>
+                        <th style="width: 70px;" data-sort="expiry" onclick="sortTable('swing', 'expiry')">Expiry</th>
+                        <th style="width: 60px;" data-sort="score" onclick="sortTable('swing', 'score')">Score</th>
                     </tr>
                 </thead>
                 <tbody id="swing-tbody"></tbody>
             </table>
+            <div class="no-results" id="swing-no-results" style="display: none;">No markets match your filters</div>
         </section>
         
         <section>
@@ -2224,6 +2599,10 @@ const DATA =
   ]
 };
 
+let allMeanReversionMarkets = [];
+let allSwingMarkets = [];
+let currentSort = { mr: { field: 'rank', asc: true }, swing: { field: 'rank', asc: true } };
+
 function renderDashboard(data) {
     document.getElementById('timestamp').textContent = 
         `Generated: ${new Date(data.generated_at).toLocaleString()}`;
@@ -2235,8 +2614,13 @@ function renderDashboard(data) {
         <div class="stat-card"><div class="stat-value" style="color: var(--accent-red);">${data.summary.excluded}</div><div class="stat-label">Excluded</div></div>
     `;
     
-    renderMarketTable('mean-reversion-tbody', data.mean_reversion_candidates, 'mr');
-    renderMarketTable('swing-tbody', data.swing_candidates, 'swing');
+    // Store original data
+    allMeanReversionMarkets = data.mean_reversion_candidates;
+    allSwingMarkets = data.swing_candidates;
+    
+    renderMarketTable('mean-reversion-tbody', allMeanReversionMarkets, 'mr');
+    renderMarketTable('swing-tbody', allSwingMarkets, 'swing');
+    updateResultsCounts();
     
     document.getElementById('excluded-tbody').innerHTML = data.excluded_markets.map(m => 
         `<tr><td>${esc(m.title)}</td><td><span class="platform-badge ${m.platform.toLowerCase()}">${m.platform}</span></td><td>${m.liquidity}</td><td><span class="reason-badge">${esc(m.reason)}</span></td></tr>`
@@ -2252,9 +2636,8 @@ function renderMarketTable(tbodyId, markets, type) {
         const activityClass = m.activity_ratio_raw >= 0.3 ? 'activity-high' : m.activity_ratio_raw >= 0.1 ? 'activity-medium' : 'activity-low';
         const rowId = `${type}-${idx}`;
         
-        // Condensed row
         html += `
-            <tr class="market-row" data-target="${rowId}" onclick="toggleDetails('${rowId}')">
+            <tr class="market-row" data-target="${rowId}" data-market='${JSON.stringify(m).replace(/'/g, "&#39;")}' onclick="toggleDetails('${rowId}')">
                 <td><span class="expand-icon">▶</span></td>
                 <td>${m.rank}</td>
                 <td class="title-cell" title="${esc(m.title)}">${esc(m.title)}</td>
@@ -2266,21 +2649,15 @@ function renderMarketTable(tbodyId, markets, type) {
                 <td>${m.time_to_expiry}</td>
                 <td class="score-cell ${scoreClass}">${m.final_score.toFixed(1)}</td>
             </tr>
-        `;
-        
-        // Expandable details row
-        html += `
             <tr class="details-row" id="${rowId}">
                 <td colspan="10">
-                    <div class="details-content">
-                        ${renderDetails(m, type)}
-                    </div>
+                    <div class="details-content">${renderDetails(m, type)}</div>
                 </td>
             </tr>
         `;
     });
     
-    tbody.innerHTML = html;
+    tbody.innerHTML = html || '<tr><td colspan="10" class="no-results">No markets match your filters</td></tr>';
 }
 
 function renderDetails(m, type) {
@@ -2300,32 +2677,13 @@ function renderDetails(m, type) {
             <div class="details-section">
                 <h4>📊 Key Metrics</h4>
                 <div class="details-metrics">
-                    <div class="detail-metric">
-                        <div class="detail-metric-label">Liquidity</div>
-                        <div class="detail-metric-value">${m.liquidity}</div>
-                    </div>
-                    <div class="detail-metric">
-                        <div class="detail-metric-label">Recent Vol</div>
-                        <div class="detail-metric-value">${m.recent_volume}</div>
-                    </div>
-                    <div class="detail-metric">
-                        <div class="detail-metric-label">Total Vol</div>
-                        <div class="detail-metric-value">${m.total_volume}</div>
-                    </div>
-                    <div class="detail-metric">
-                        <div class="detail-metric-label">Activity</div>
-                        <div class="detail-metric-value" style="color: var(--accent-green);">${m.activity_ratio}</div>
-                    </div>
-                    <div class="detail-metric">
-                        <div class="detail-metric-label">Last Price</div>
-                        <div class="detail-metric-value">${m.last_price}¢</div>
-                    </div>
-                    <div class="detail-metric">
-                        <div class="detail-metric-label">Expiry</div>
-                        <div class="detail-metric-value">${m.time_to_expiry}</div>
-                    </div>
+                    <div class="detail-metric"><div class="detail-metric-label">Liquidity</div><div class="detail-metric-value">${m.liquidity}</div></div>
+                    <div class="detail-metric"><div class="detail-metric-label">Recent Vol</div><div class="detail-metric-value">${m.recent_volume}</div></div>
+                    <div class="detail-metric"><div class="detail-metric-label">Total Vol</div><div class="detail-metric-value">${m.total_volume}</div></div>
+                    <div class="detail-metric"><div class="detail-metric-label">Activity</div><div class="detail-metric-value" style="color: var(--accent-green);">${m.activity_ratio}</div></div>
+                    <div class="detail-metric"><div class="detail-metric-label">Last Price</div><div class="detail-metric-value">${m.last_price}¢</div></div>
+                    <div class="detail-metric"><div class="detail-metric-label">Expiry</div><div class="detail-metric-value">${m.time_to_expiry}</div></div>
                 </div>
-                
                 <div class="scores-row">
                     <span class="score-pill"><span class="score-pill-label">Mean Rev:</span><span class="score-pill-value">${m.scores.mean_reversion}</span></span>
                     <span class="score-pill"><span class="score-pill-label">Swing:</span><span class="score-pill-value">${m.scores.swing_volatility}</span></span>
@@ -2336,18 +2694,11 @@ function renderDetails(m, type) {
                 </div>
                 ${tags}
             </div>
-            
             <div class="details-section">
                 <h4>📝 Analysis</h4>
                 ${catalyst}
-                <div class="analysis-box">
-                    <div class="analysis-label">Why Suitable</div>
-                    <div class="analysis-text">${esc(m.why_suitable)}</div>
-                </div>
-                <div class="risk-box">
-                    <div class="risk-label">⚠️ Main Risk</div>
-                    <div class="risk-text">${esc(m.main_risk)}</div>
-                </div>
+                <div class="analysis-box"><div class="analysis-label">Why Suitable</div><div class="analysis-text">${esc(m.why_suitable)}</div></div>
+                <div class="risk-box"><div class="risk-label">⚠️ Main Risk</div><div class="risk-text">${esc(m.main_risk)}</div></div>
             </div>
         </div>
     `;
@@ -2357,17 +2708,247 @@ function toggleDetails(rowId) {
     const detailsRow = document.getElementById(rowId);
     const marketRow = document.querySelector(`[data-target="${rowId}"]`);
     
-    // Close all other expanded rows
     document.querySelectorAll('.details-row.show').forEach(row => {
         if (row.id !== rowId) {
             row.classList.remove('show');
-            document.querySelector(`[data-target="${row.id}"]`).classList.remove('expanded');
+            document.querySelector(`[data-target="${row.id}"]`)?.classList.remove('expanded');
         }
     });
     
-    // Toggle current row
     detailsRow.classList.toggle('show');
     marketRow.classList.toggle('expanded');
+}
+
+function toggleFilterPanel() {
+    const content = document.getElementById('filter-content');
+    const toggleText = document.getElementById('filter-toggle-text');
+    content.classList.toggle('collapsed');
+    toggleText.textContent = content.classList.contains('collapsed') ? 'Show' : 'Hide';
+}
+
+function getFilters() {
+    return {
+        search: document.getElementById('filter-search').value.toLowerCase(),
+        platform: document.getElementById('filter-platform').value,
+        type: document.getElementById('filter-type').value,
+        minScore: parseFloat(document.getElementById('filter-min-score').value) || 0,
+        liqMin: parseFloat(document.getElementById('filter-liq-min').value) || 0,
+        liqMax: parseFloat(document.getElementById('filter-liq-max').value) || Infinity,
+        activity: document.getElementById('filter-activity').value,
+        expiry: document.getElementById('filter-expiry').value,
+        price: document.getElementById('filter-price').value,
+        flow: document.getElementById('filter-flow').value,
+        micro: document.getElementById('filter-micro').value,
+        inefficiency: document.getElementById('filter-inefficiency').value,
+        category: document.getElementById('filter-category').value,
+    };
+}
+
+function marketPassesFilters(m, filters) {
+    // Search
+    if (filters.search && !m.title.toLowerCase().includes(filters.search)) return false;
+    
+    // Platform
+    if (filters.platform !== 'all' && m.platform.toLowerCase() !== filters.platform) return false;
+    
+    // Market type
+    if (filters.type === 'mean-reversion' && m.scores.mean_reversion < 7) return false;
+    if (filters.type === 'swing' && m.scores.swing_volatility < 7) return false;
+    if (filters.type === 'both' && (m.scores.mean_reversion < 7 || m.scores.swing_volatility < 7)) return false;
+    
+    // Min score
+    if (filters.minScore > 0 && m.final_score < filters.minScore) return false;
+    
+    // Liquidity
+    if (m.liquidity_raw < filters.liqMin || m.liquidity_raw > filters.liqMax) return false;
+    
+    // Activity
+    const actRatio = m.activity_ratio_raw;
+    if (filters.activity === 'very-high' && actRatio < 0.5) return false;
+    if (filters.activity === 'high' && (actRatio < 0.2 || actRatio >= 0.5)) return false;
+    if (filters.activity === 'medium' && (actRatio < 0.1 || actRatio >= 0.2)) return false;
+    if (filters.activity === 'low' && actRatio >= 0.1) return false;
+    
+    // Expiry
+    const hours = m.hours_to_expiry;
+    if (filters.expiry === '24h' && hours > 24) return false;
+    if (filters.expiry === '3d' && hours > 72) return false;
+    if (filters.expiry === '7d' && hours > 168) return false;
+    if (filters.expiry === '14d' && hours > 336) return false;
+    if (filters.expiry === '30d' && hours > 720) return false;
+    if (filters.expiry === '30d+' && hours <= 720) return false;
+    
+    // Price
+    const price = m.last_price;
+    if (filters.price === 'mid' && (price < 30 || price > 70)) return false;
+    if (filters.price === 'low' && (price < 10 || price > 30)) return false;
+    if (filters.price === 'high' && (price < 70 || price > 90)) return false;
+    if (filters.price === 'extreme-low' && price >= 10) return false;
+    if (filters.price === 'extreme-high' && price <= 90) return false;
+    
+    // Score filters
+    if (filters.flow === '9+' && m.scores.flow_intensity < 9) return false;
+    if (filters.flow === '7+' && m.scores.flow_intensity < 7) return false;
+    if (filters.flow === '5+' && m.scores.flow_intensity < 5) return false;
+    
+    if (filters.micro === '9+' && m.scores.microstructure < 9) return false;
+    if (filters.micro === '7+' && m.scores.microstructure < 7) return false;
+    if (filters.micro === '5+' && m.scores.microstructure < 5) return false;
+    
+    if (filters.inefficiency === '9+' && m.scores.inefficiency < 9) return false;
+    if (filters.inefficiency === '7+' && m.scores.inefficiency < 7) return false;
+    if (filters.inefficiency === '5+' && m.scores.inefficiency < 5) return false;
+    
+    // Category
+    if (filters.category !== 'all') {
+        const tags = (m.tags || []).map(t => t.toLowerCase()).join(' ');
+        const title = m.title.toLowerCase();
+        const combined = tags + ' ' + title;
+        
+        const categoryMap = {
+            'sports': ['sports', 'nba', 'nfl', 'soccer', 'football', 'basketball', 'golf', 'tennis', 'baseball', 'epl', 'masters'],
+            'crypto': ['crypto', 'bitcoin', 'ethereum', 'btc', 'eth', 'solana', 'defi'],
+            'politics': ['politics', 'election', 'trump', 'biden', 'president', 'congress', 'senate', 'governor'],
+            'economy': ['economy', 'fed', 'inflation', 'recession', 'gdp', 'jobs', 'unemployment'],
+            'commodities': ['oil', 'gold', 'crude', 'commodities', 'gas', 'silver'],
+            'entertainment': ['entertainment', 'oscar', 'grammy', 'movie', 'music', 'celebrity']
+        };
+        
+        const keywords = categoryMap[filters.category] || [];
+        if (!keywords.some(kw => combined.includes(kw))) return false;
+    }
+    
+    return true;
+}
+
+function applyFilters() {
+    const filters = getFilters();
+    
+    const filteredMR = allMeanReversionMarkets.filter(m => marketPassesFilters(m, filters));
+    const filteredSwing = allSwingMarkets.filter(m => marketPassesFilters(m, filters));
+    
+    renderMarketTable('mean-reversion-tbody', filteredMR, 'mr');
+    renderMarketTable('swing-tbody', filteredSwing, 'swing');
+    
+    updateResultsCounts(filteredMR.length, filteredSwing.length);
+    updateActiveFilters(filters);
+    
+    // Show/hide no results message
+    document.getElementById('mr-no-results').style.display = filteredMR.length === 0 ? 'block' : 'none';
+    document.getElementById('swing-no-results').style.display = filteredSwing.length === 0 ? 'block' : 'none';
+    document.getElementById('mean-reversion-table').style.display = filteredMR.length === 0 ? 'none' : 'table';
+    document.getElementById('swing-table').style.display = filteredSwing.length === 0 ? 'none' : 'table';
+}
+
+function updateResultsCounts(mrCount, swingCount) {
+    const mrTotal = allMeanReversionMarkets.length;
+    const swingTotal = allSwingMarkets.length;
+    
+    mrCount = mrCount !== undefined ? mrCount : mrTotal;
+    swingCount = swingCount !== undefined ? swingCount : swingTotal;
+    
+    document.getElementById('mr-results-count').innerHTML = 
+        `Showing <strong>${mrCount}</strong> of ${mrTotal} markets`;
+    document.getElementById('swing-results-count').innerHTML = 
+        `Showing <strong>${swingCount}</strong> of ${swingTotal} markets`;
+}
+
+function updateActiveFilters(filters) {
+    const container = document.getElementById('active-filters');
+    const tags = [];
+    
+    if (filters.search) tags.push({ label: `Search: "${filters.search}"`, clear: () => { document.getElementById('filter-search').value = ''; applyFilters(); }});
+    if (filters.platform !== 'all') tags.push({ label: `Platform: ${filters.platform}`, clear: () => { document.getElementById('filter-platform').value = 'all'; applyFilters(); }});
+    if (filters.type !== 'all') tags.push({ label: `Type: ${filters.type}`, clear: () => { document.getElementById('filter-type').value = 'all'; applyFilters(); }});
+    if (filters.minScore > 0) tags.push({ label: `Min Score: ${filters.minScore}`, clear: () => { document.getElementById('filter-min-score').value = ''; applyFilters(); }});
+    if (filters.liqMin > 0) tags.push({ label: `Min Liq: $${filters.liqMin.toLocaleString()}`, clear: () => { document.getElementById('filter-liq-min').value = ''; applyFilters(); }});
+    if (filters.liqMax < Infinity) tags.push({ label: `Max Liq: $${filters.liqMax.toLocaleString()}`, clear: () => { document.getElementById('filter-liq-max').value = ''; applyFilters(); }});
+    if (filters.activity !== 'all') tags.push({ label: `Activity: ${filters.activity}`, clear: () => { document.getElementById('filter-activity').value = 'all'; applyFilters(); }});
+    if (filters.expiry !== 'all') tags.push({ label: `Expiry: ${filters.expiry}`, clear: () => { document.getElementById('filter-expiry').value = 'all'; applyFilters(); }});
+    if (filters.price !== 'all') tags.push({ label: `Price: ${filters.price}`, clear: () => { document.getElementById('filter-price').value = 'all'; applyFilters(); }});
+    if (filters.flow !== 'all') tags.push({ label: `Flow: ${filters.flow}`, clear: () => { document.getElementById('filter-flow').value = 'all'; applyFilters(); }});
+    if (filters.micro !== 'all') tags.push({ label: `Micro: ${filters.micro}`, clear: () => { document.getElementById('filter-micro').value = 'all'; applyFilters(); }});
+    if (filters.inefficiency !== 'all') tags.push({ label: `Inefficiency: ${filters.inefficiency}`, clear: () => { document.getElementById('filter-inefficiency').value = 'all'; applyFilters(); }});
+    if (filters.category !== 'all') tags.push({ label: `Category: ${filters.category}`, clear: () => { document.getElementById('filter-category').value = 'all'; applyFilters(); }});
+    
+    container.innerHTML = tags.map((tag, i) => 
+        `<span class="active-filter-tag">${tag.label} <span class="remove" onclick="clearFilter(${i})">×</span></span>`
+    ).join('');
+    
+    window._activeFilterClears = tags.map(t => t.clear);
+}
+
+function clearFilter(index) {
+    if (window._activeFilterClears && window._activeFilterClears[index]) {
+        window._activeFilterClears[index]();
+    }
+}
+
+function resetFilters() {
+    document.getElementById('filter-search').value = '';
+    document.getElementById('filter-platform').value = 'all';
+    document.getElementById('filter-type').value = 'all';
+    document.getElementById('filter-min-score').value = '';
+    document.getElementById('filter-liq-min').value = '';
+    document.getElementById('filter-liq-max').value = '';
+    document.getElementById('filter-activity').value = 'all';
+    document.getElementById('filter-expiry').value = 'all';
+    document.getElementById('filter-price').value = 'all';
+    document.getElementById('filter-flow').value = 'all';
+    document.getElementById('filter-micro').value = 'all';
+    document.getElementById('filter-inefficiency').value = 'all';
+    document.getElementById('filter-category').value = 'all';
+    
+    applyFilters();
+}
+
+function sortTable(tableType, field) {
+    const sort = currentSort[tableType];
+    if (sort.field === field) {
+        sort.asc = !sort.asc;
+    } else {
+        sort.field = field;
+        sort.asc = true;
+    }
+    
+    const markets = tableType === 'mr' ? [...allMeanReversionMarkets] : [...allSwingMarkets];
+    
+    markets.sort((a, b) => {
+        let valA, valB;
+        switch(field) {
+            case 'rank': valA = a.rank; valB = b.rank; break;
+            case 'title': valA = a.title.toLowerCase(); valB = b.title.toLowerCase(); break;
+            case 'platform': valA = a.platform; valB = b.platform; break;
+            case 'liquidity': valA = a.liquidity_raw; valB = b.liquidity_raw; break;
+            case 'volume': valA = a.recent_volume_raw; valB = b.recent_volume_raw; break;
+            case 'activity': valA = a.activity_ratio_raw; valB = b.activity_ratio_raw; break;
+            case 'price': valA = a.last_price; valB = b.last_price; break;
+            case 'expiry': valA = a.hours_to_expiry; valB = b.hours_to_expiry; break;
+            case 'score': valA = a.final_score; valB = b.final_score; break;
+            default: valA = 0; valB = 0;
+        }
+        
+        if (valA < valB) return sort.asc ? -1 : 1;
+        if (valA > valB) return sort.asc ? 1 : -1;
+        return 0;
+    });
+    
+    if (tableType === 'mr') {
+        allMeanReversionMarkets = markets;
+    } else {
+        allSwingMarkets = markets;
+    }
+    
+    applyFilters();
+    
+    // Update header indicators
+    const tableId = tableType === 'mr' ? 'mean-reversion-table' : 'swing-table';
+    document.querySelectorAll(`#${tableId} th`).forEach(th => {
+        th.classList.remove('sorted-asc', 'sorted-desc');
+        if (th.dataset.sort === field) {
+            th.classList.add(sort.asc ? 'sorted-asc' : 'sorted-desc');
+        }
+    });
 }
 
 function esc(t) {
